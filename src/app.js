@@ -50,7 +50,8 @@ const createDocument = async () => {
 // Show Result
 const getTest = async () => {
     try{
-        const result = await Test.find({name:"Vue Js"});
+        const result = await Test.find()
+        .countDocuments();
         console.log(result);
     }catch(err){
         console.log(err);
