@@ -22,11 +22,11 @@ const testScheme = new mongoose.Schema({
 })
 
 
-// Colllection Creation
+// Collection Creation
 const Test = new mongoose.model("Test", testScheme );
 
 
-// Create document insert
+// Create document or insert
 const createDocument = async () => {
     try{
         const testData = new Test({
@@ -44,4 +44,17 @@ const createDocument = async () => {
     
 }
 
-createDocument();
+// createDocument();
+
+
+// Show Result
+const getTest = async () => {
+    try{
+        const result = await Test.find({name:"Vue Js"});
+        console.log(result);
+    }catch(err){
+        console.log(err);
+    }
+}
+
+getTest();
