@@ -30,7 +30,7 @@ const Test = new mongoose.model("Test", testScheme );
 const createDocument = async () => {
     try{
         const testData = new Test({
-            name: "Vue Js",
+            name: "React Js",
             type: "Front End",
             active: true
         })
@@ -59,3 +59,19 @@ const getTest = async () => {
 }
 
 getTest();
+
+
+// Update Result
+const updateDocument = async (_id) => {
+    try{
+        const newresult = await Test.updateOne({_id},{
+            $set:{name:"React"}
+        });
+        console.log(newresult);
+    }catch(err){
+        console.log(err);
+    }
+    
+}
+
+updateDocument('6200b0f8efa1d8767c043572');
